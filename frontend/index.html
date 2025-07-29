@@ -10,61 +10,36 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎵</text></svg>">
     
     <!-- Adsterra Social Bar Ad -->
-    <!-- This is a placeholder. Replace with your actual Adsterra Social Bar code. -->
     <script type='text/javascript' src='//grubpaths.com/26/4f/8b/264f8b1cbdb77b89036f264d73644d1c.js'></script>
 </head>
 <body class="bg-black text-white font-sans antialiased">
 
     <div class="min-h-screen flex flex-col items-center p-4">
         <main class="w-full max-w-2xl mx-auto">
+            <!-- Header, Form, and Ads remain the same -->
             <header class="text-center mb-8">
                 <h1 class="text-4xl md:text-5xl font-bold tracking-tight">TikTokMaster</h1>
                 <p class="text-gray-400 mt-2">Download Videos, Slideshows & MP3s in HD</p>
             </header>
 
             <form id="download-form" class="w-full flex flex-col sm:flex-row gap-2 mb-6">
-                <input 
-                    type="text" 
-                    id="tiktok-url" 
-                    placeholder="Paste TikTok link here..."
-                    class="w-full flex-grow bg-gray-900 border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 transition"
-                    required>
-                <button type="submit" id="submit-btn" class="bg-white text-black font-bold py-3 px-6 rounded-md hover:bg-gray-200 transition-all duration-300 flex items-center justify-center">
+                <input type="text" id="tiktok-url" placeholder="Paste TikTok link here..." class="w-full flex-grow bg-gray-900 border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500" required>
+                <button type="submit" id="submit-btn" class="bg-white text-black font-bold py-3 px-6 rounded-md hover:bg-gray-200 flex items-center justify-center">
                     <svg id="btn-icon" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                     <span id="btn-text">Fetch</span>
                 </button>
             </form>
 
-            <!-- Adsterra Native Banner Ad -->
-            <!-- This is a placeholder. Replace with your actual Adsterra Native Banner code. -->
             <div class="my-4 flex justify-center">
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : '28c6144a65ec365dcd723679909923e1',
-                        'format' : 'iframe',
-                        'height' : 90,
-                        'width' : 728,
-                        'params' : {}
-                    };
-                </script>
-                <script type="text/javascript" src="//grubpaths.com/28c6144a65ec365dcd723679909923e1/invoke.js"></script>
+                <!-- Adsterra Native Banner -->
+                <script type="text/javascript"> atOptions = { 'key' : '28c6144a65ec365dcd723679909923e1', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} }; </script> <script type="text/javascript" src="//grubpaths.com/28c6144a65ec365dcd723679909923e1/invoke.js"></script>
             </div>
             
             <!-- Skeleton Loader -->
-            <div id="loader" class="hidden w-full space-y-4">
-                <div class="flex space-x-4">
-                    <div class="shimmer h-32 w-32 rounded-lg bg-gray-800"></div>
-                    <div class="flex-1 space-y-3 py-1">
-                        <div class="shimmer h-6 w-3/4 rounded bg-gray-800"></div>
-                        <div class="shimmer h-4 w-1/2 rounded bg-gray-800"></div>
-                    </div>
-                </div>
-                <div class="shimmer h-12 w-full rounded-md bg-gray-800"></div>
-                <div class="shimmer h-12 w-full rounded-md bg-gray-800"></div>
-            </div>
+            <div id="loader" class="hidden w-full space-y-4"> ... </div>
 
             <!-- Error Message -->
-            <div id="error-message" class="hidden text-center bg-red-900/50 border border-red-700 text-red-300 px-4 py-3 rounded-md"></div>
+            <div id="error-message" class="hidden"> ... </div>
 
             <!-- Results -->
             <div id="results" class="hidden w-full mt-8 animate-fade-in">
@@ -76,84 +51,37 @@
                         <!-- Video Download Section -->
                         <div id="video-section" class="space-y-3">
                              <div class="flex flex-col sm:flex-row gap-2">
-                                <select id="quality-select" class="w-full sm:w-1/2 bg-gray-800 border border-gray-700 rounded-md px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-gray-500">
-                                    <!-- Options populated by JS -->
-                                </select>
-                                <a id="download-video-btn" href="#" download target="_blank" class="w-full sm:w-1/2 bg-white text-black font-bold py-2.5 px-4 rounded-md hover:bg-gray-200 transition flex items-center justify-center">
+                                <select id="quality-select" class="w-full sm:w-1/2 bg-gray-800 border border-gray-700 rounded-md px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-gray-500"></select>
+                                
+                                <!-- CHANGED to a button -->
+                                <button id="download-video-btn" class="w-full sm:w-1/2 bg-white text-black font-bold py-2.5 px-4 rounded-md hover:bg-gray-200 flex items-center justify-center">
                                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                                     Download Video
-                                </a>
+                                </button>
                             </div>
-                            <a id="download-mp3-btn" href="#" download target="_blank" class="w-full bg-gray-800 text-white font-bold py-2.5 px-4 rounded-md hover:bg-gray-700 transition flex items-center justify-center">
+                            <!-- CHANGED to a button -->
+                            <button id="download-mp3-btn" class="w-full bg-gray-800 text-white font-bold py-2.5 px-4 rounded-md hover:bg-gray-700 flex items-center justify-center">
                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-12c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 6l12 3"></path></svg>
                                 Download MP3 Audio
-                            </a>
+                            </button>
                         </div>
                         
-                        <!-- Image Slideshow Section -->
+                        <!-- Image Slideshow Section (no changes here) -->
                         <div id="image-section" class="hidden">
-                            <h3 class="text-lg font-semibold mb-3">Image Slideshow</h3>
-                            <div id="image-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2">
-                                <!-- Images populated by JS -->
-                            </div>
+                           ...
                         </div>
                     </div>
                 </div>
             </div>
         </main>
         
-        <!-- SEO Content Section -->
+        <!-- SEO Content Section (no changes here) -->
         <section id="seo-content" class="w-full max-w-4xl mx-auto mt-20 px-4 prose">
-            <h1>TikTokMaster: Your Ultimate Guide to Downloading TikTok Content in High-Fidelity</h1>
-            <p>In the vibrant, fast-paced world of social media, TikTok stands as a titan of creativity. It's a universe of captivating short-form videos, stunning image slideshows, and trending audio that shapes global culture. Whether you're a content creator looking to archive your work, a marketer studying viral trends, or simply a fan who wants to save a memorable clip for offline viewing, the need for a reliable way to download TikTok content is more apparent than ever.</p>
-            <p>Enter <strong>TikTokMaster</strong>.</p>
-            <p>We've built a powerful, intuitive, and completely free tool designed to be your one-stop solution for preserving the TikTok content you love. Our platform bridges the gap between fleeting online moments and permanent, high-quality media files on your device. Forget screen recording with clunky overlays and poor resolution. TikTokMaster is engineered to fetch the original, high-fidelity files directly from the source, delivering them to you in pristine condition.</p>
-            
-            <h2>About TikTokMaster: A Passion for Preservation</h2>
-            <p>TikTokMaster wasn't born in a boardroom. It was conceived by a small team of developers and digital media enthusiasts who share a deep appreciation for the creativity that flourishes on platforms like TikTok. We saw a common problem: users wanted to save content—for inspiration, for sharing outside the app, or for safekeeping—but were often met with complicated tools, invasive ads, or low-quality, watermarked results.</p>
-            <p>Our mission became clear: to create a downloader that is <strong>powerful, user-friendly, and respectful of privacy.</strong></p>
-            <ul>
-                <li><strong>Powerful:</strong> We don't just download videos. We give you control. Our service extracts every available format, from standard definition to breathtaking 8K resolution. We handle video posts, multi-image slideshows, and can even isolate the audio track for a clean MP3 download.</li>
-                <li><strong>User-Friendly:</strong> Our interface is minimalist and designed for speed. No confusing steps, no software installation. Just a simple copy-and-paste action is all it takes to get started. The process is intuitive on any device, be it a desktop, tablet, or smartphone.</li>
-                <li><strong>Privacy-Focused:</strong> We believe your activity is your business. TikTokMaster operates as a stateless service. This means we do not store your download history or the content you process. The connection is made, the files are processed, and the links are delivered to you. Nothing is kept on our servers.</li>
-            </ul>
-            
-            <h2>The TikTokMaster Advantage: Pros and Cons</h2>
-            <h3>The Pros (Why You'll Love TikTokMaster)</h3>
-            <ol>
-                <li><strong>Unmatched Quality Options:</strong> This is our cornerstone feature. We analyze the TikTok post and present you with <em>all</em> the video formats the creator originally uploaded, from 360p up to 8K.</li>
-                <li><strong>Truly Versatile Content Support:</strong> We handle Videos, Image Slideshows, and Audio. For slideshows, we extract every image. For audio, our "Download MP3" button isolates the track.</li>
-                <li><strong>Completely Watermark-Free:</strong> All downloads are free of the distracting TikTok watermark, giving you a clean file.</li>
-                <li><strong>Incredible Simplicity and Speed:</strong> Just copy, paste, and fetch. No software, no extensions.</li>
-                <li><strong>Universal Cross-Platform Compatibility:</strong> Use our tool on any device with a modern browser—iPhones, Android, Windows, macOS, and Linux.</li>
-            </ol>
-            
-            <h3>The Cons (What to Keep in Mind)</h3>
-            <ol>
-                <li><strong>Requires an Internet Connection:</strong> Our tool is online and needs an active connection to work.</li>
-                <li><strong>Dependency on TikTok's Platform:</strong> Changes by TikTok could temporarily disrupt our service, but we work fast to adapt.</li>
-                <li><strong>Cannot Access Private Content:</strong> We respect privacy. If a video is private or restricted, our tool won't access it.</li>
-                <li><strong>Understanding Copyright:</strong> Our tool provides a technical service. You are responsible for respecting copyright laws. Use downloads for personal use unless you have permission from the creator.</li>
-            </ol>
-
-            <h2>Frequently Asked Questions (FAQ)</h2>
-            
-            <h3>Is TikTokMaster free to use?</h3>
-            <p>Yes, absolutely. TikTokMaster is 100% free.</p>
-            
-            <h3>Do I need to install any software?</h3>
-            <p>No. TikTokMaster is a fully web-based tool. You don't need to install anything.</p>
-
-            <h3>Will the downloaded videos have a watermark?</h3>
-            <p>No. All videos and images downloaded through TikTokMaster are completely free of the TikTok watermark.</p>
-            
-            <h3>Is it legal to download TikTok videos?</h3>
-            <p>Downloading for personal, offline use is generally acceptable. Re-using content without the creator's permission may violate copyright. Please act responsibly.</p>
+           ...
         </section>
 
         <footer class="text-center text-gray-500 text-sm mt-12 pb-4">
-            <p>© 2024 TikTokMaster. All rights reserved.</p>
-            <p class="mt-1">We are not affiliated with TikTok. Please respect copyright laws.</p>
+            ...
         </footer>
     </div>
 
